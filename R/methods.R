@@ -140,50 +140,6 @@ bootandBtest <- function(tau, fn, Bname, type = 'geq', B_min = 99, B_max = 12799
   return(c(length(tau_B), pval))
 }
 
-# -----------------------------------------------------------------------------
-#' @title Bootstrap Pretest
-#' 
-#' @description This function performs the pretest procedure described in Davidson & MacKinnon (2000) to determine the appropriate number of simulations needed to minimize loss of power.
-#'
-#' 
-#' @references Russell Davidson & James G. MacKinnon (2000), Bootstrap tests: how many bootstraps?, Econometric Reviews, 19:1, 55-68.
-#' 
-#' @export
-boot_and_pretest <- function(tau, gamma_null, std, n, type = 'geq', alpha = 0.05, 
-                         B_min = 99, B_max = 12799, beta = 0.001, seed = NULL){
-  # initialize number of bootstraps
-  B <- B_min
-  B_prime <- B_min
-  B_tmp <- B
-  # Get random vector tau_N
-  if (is.null(seed)==FALSE){
-    set.seed(seed) 
-  }
-  tau_B <- matrix(0,0,1)
-  stop <- FALSE
-  while (stop==FALSE){
-    tau_B_tmp <- bootNullDist_ex(gamma_null, std, n, B_tmp)
-    tau_B <- c(tau_B, tau_B_tmp)
-    boottest <- bootBtest(tau, tau_B, type = type, B_max = B_max, alpha = alpha, beta = beta)
-    # Compute Bootstrap p-value
-    pval <- boottest$boot_pval
-    val <- boottest$val
-    if (val==TRUE){
-      # stop 
-      stop <- TRUE
-    }else{
-      # continue
-      B <- 2*B_prime + 1
-      B_tmp <- B_prime + 1
-      B_prime <- B
-      if (B>B_max){
-        stop <- TRUE
-      }
-    } 
-  }
-  return(c(length(tau_B), pval))
-}
-
 
 # -----------------------------------------------------------------------------
 #' @title Test statistic
