@@ -4,7 +4,7 @@
 \alias{compute_stat}
 \title{Test statistic}
 \usage{
-compute_stat(mdl, null_vec, type = "F-test")
+compute_stat(mdl, null_vec)
 }
 \description{
 This function computes test statistics for 'T-test' and 'F-test'.

@@ -12,13 +12,7 @@ using namespace Rcpp;
 //' 
 //' @export
 // [[Rcpp::export]]
-arma::vec boot_vec(double param_null, double std, int n, int B){
-  // Obtain R environment containing model functions
-  //Rcpp::Environment base("package:Bootpretest");
-  // Make function callable from C++
-  //Rcpp::Function compute_stat = base["compute_stat"];
-  // calling lm()
-  //Function lm("lm");   
+arma::vec bootNullDist_ex(double param_null, double std, int n, int B){
   arma::vec tau_B_tmp(B, arma::fill::zeros);
   arma::vec y_t_sim;
   double gamma_hat_sim;

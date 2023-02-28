@@ -11,9 +11,9 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// boot_vec
-arma::vec boot_vec(double param_null, double std, int n, int B);
-RcppExport SEXP _bootBtest_boot_vec(SEXP param_nullSEXP, SEXP stdSEXP, SEXP nSEXP, SEXP BSEXP) {
+// bootNullDist_ex
+arma::vec bootNullDist_ex(double param_null, double std, int n, int B);
+RcppExport SEXP _bootBtest_bootNullDist_ex(SEXP param_nullSEXP, SEXP stdSEXP, SEXP nSEXP, SEXP BSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,13 +21,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type std(stdSEXP);
     Rcpp::traits::input_parameter< int >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type B(BSEXP);
-    rcpp_result_gen = Rcpp::wrap(boot_vec(param_null, std, n, B));
+    rcpp_result_gen = Rcpp::wrap(bootNullDist_ex(param_null, std, n, B));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_bootBtest_boot_vec", (DL_FUNC) &_bootBtest_boot_vec, 4},
+    {"_bootBtest_bootNullDist_ex", (DL_FUNC) &_bootBtest_bootNullDist_ex, 4},
     {NULL, NULL, 0}
 };
 

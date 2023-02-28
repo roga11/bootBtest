@@ -18,7 +18,7 @@ boot_and_pretest(
 )
 }
 \description{
-This function performs the pretest preocedure described in Davidson & MacKinnon (2000) to determine the appropriate number of simulations needed to minimize loss of power.
+This function performs the pretest procedure described in Davidson & MacKinnon (2000) to determine the appropriate number of simulations needed to minimize loss of power.
 }
 \references{
 Russell Davidson & James G. MacKinnon (2000), Bootstrap tests: how many bootstraps?, Econometric Reviews, 19:1, 55-68.

@@ -8,7 +8,7 @@
 #' @return vector of simulated test statistics
 #' 
 #' @export
-boot_vec <- function(param_null, std, n, B) {
-    .Call(`_bootBtest_boot_vec`, param_null, std, n, B)
+bootNullDist_ex <- function(param_null, std, n, B) {
+    .Call(`_bootBtest_bootNullDist_ex`, param_null, std, n, B)
 }
 
