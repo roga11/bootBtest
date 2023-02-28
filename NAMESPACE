@@ -2,7 +2,6 @@
 
 export(bootBtest)
 export(bootNullDist_ex)
-export(boot_and_pretest)
 export(boot_pval)
 export(bootandBtest)
 export(compute_stat)
